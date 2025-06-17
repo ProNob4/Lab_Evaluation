@@ -15,20 +15,23 @@
     </style>
 </head>
 <body>
-    <h3>Enter Student Information</h3>
-
-    <label for="">Name:</label>
-    <input type="text" id="name">
-    <br>
-    <label for="">Email:</label>
-    <input type="text" id="email">
-    <br>
-    <label for="">ID:</label>
-    <input type="text" id="sid">
-    <br><br>
-
-    <button id="addstudent">Submit</button><br><br>
-
+<div style="display: flex; flex-direction: column;">
+    <body>
+        <h3 style="font-size: 30px;">Enter Student Information</h3>
+      
+        <form id="studentForm" novalidate>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required /> <br><br>
+      
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required /><br><br>
+      
+          <label for="sid">ID:</label>
+          <input type="text" id="sid" name="sid" required /><br>  <br>  
+      
+          <button type="submit">Submit</button>
+    </form>
+</div>
     <script>
         $('#addstudent').click(function() {
             var name = $('#name').val();
