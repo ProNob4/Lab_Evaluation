@@ -15,33 +15,26 @@
     </style>
 </head>
 <body>
-<div style="display: flex; flex-direction: column;">
-    <body>
-        <h3 style="font-size: 30px;">Enter Student Information</h3>
-      
-        <form id="studentForm" novalidate>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required /> <br><br>
-      
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required /><br><br>
-      
-          <label for="sid">ID:</label>
-          <input type="text" id="sid" name="sid" required /><br>  <br>  
-      
-          <button type="submit">Submit</button>
-    </form>
-</div>
+    <h3>Enter Student Information</h3>
+
+    <label for="">Name:</label>
+    <input type="text" id="name">
+    <br>
+    <br>
+    <label for="">ID:</label>
+    <input type="text" id="sid">
+    <br><br>
+
+    <button id="addstudent">Submit</button><br><br>
+
     <script>
         $('#addstudent').click(function() {
             var name = $('#name').val();
-            var email = $('#email').val();
             var sid = $('#sid').val();
 
-            if(name && email && sid) {
+            if(name && sid) {
                 var studentData = {
                     name: name,
-                    email: email,
                     sid: sid
                 };
 
@@ -51,7 +44,7 @@
 
                 window.location.href = "SecondPage.html";
             } else {
-                alert('Please fill in all fields!');
+                alert('Please fill in all fields bro');
             }
         });
     </script>
