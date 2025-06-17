@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Table</title>
+    <link rel="stylesheet" href="tableJQ.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>User Table</h3>
+    <table id="studentTable" style="width: 100%; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>ID</th>
+        </tr>
+    </table>
+
+    <script>
+        var allStudents = JSON.parse(localStorage.getItem('students')) || [];
+
+        if (allStudents.length > 0) {
+            allStudents.forEach(function(student) {
+                $('#studentTable').append(
+                    '<tr>' +
+                        '<td>' + student.name + '</td>' +
+                        '<td>' + student.email + '</td>' +
+                        '<td>' + student.sid + '</td>' +
+                    '</tr>'
+                );
+            });
+        } else {
+            alert('No data available!');
+        }
+    </script>
+</body>
+</html>

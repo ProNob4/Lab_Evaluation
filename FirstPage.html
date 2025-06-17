@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="tableJQ.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h3>Enter Student Information</h3>
+
+    <label for="">Name:</label>
+    <input type="text" id="name">
+    <br>
+    <label for="">Email:</label>
+    <input type="text" id="email">
+    <br>
+    <label for="">ID:</label>
+    <input type="text" id="sid">
+    <br><br>
+
+    <button id="addstudent">Submit</button><br><br>
+
+    <script>
+        $('#addstudent').click(function() {
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var sid = $('#sid').val();
+
+            if(name && email && sid) {
+                var studentData = {
+                    name: name,
+                    email: email,
+                    sid: sid
+                };
+
+                var allStudents = JSON.parse(localStorage.getItem('students')) || [];
+                allStudents.push(studentData);
+                localStorage.setItem('students', JSON.stringify(allStudents));
+
+                window.location.href = "SecondPage.html";
+            } else {
+                alert('Please fill in all fields!');
+            }
+        });
+    </script>
+</body>
+</html>
