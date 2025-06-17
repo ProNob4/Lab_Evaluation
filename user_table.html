@@ -62,5 +62,25 @@
             <td>7510</td>
         </tr>
     </table>
+
+
+
+    <script>
+        var allStudents = JSON.parse(localStorage.getItem('students')) || [];
+
+        if (allStudents.length > 0) {
+            allStudents.forEach(function(student) {
+                $('#studentTable').append(
+                    '<tr>' +
+                        '<td>' + student.name + '</td>' +
+                        '<td>' + student.email + '</td>' +
+                        '<td>' + student.sid + '</td>' +
+                    '</tr>'
+                );
+            });
+        } else {
+            alert('No data available!');
+        }
+    </script>
 </body>
 </html>
